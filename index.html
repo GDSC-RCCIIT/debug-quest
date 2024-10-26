@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎮 Debug Quest | GDG RCCIIT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav">
+        <h1 class="logo">Debug Quest</h1>
+        <div class="score">Score: <span id="score">0</span>/10</div>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h2>The Vanishing Act</h2>
+            <p>When once was there, now isn't near,<br>
+               Click once or twice, watch it disappear.</p>
+            <button class="action-btn" onclick="this.style.visibility = 'hidden'">
+                Solve Me
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>The Counter's Tale</h2>
+            <p>Numbers dance, but something's wrong,<br>
+               The sequence plays a different song.</p>
+            <p>Points: <span id="points">0</span></p>
+            <button class="action-btn" onclick="document.getElementById('points').innerHTML += 1">
+                Count Up
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>The Restless Message</h2>
+            <p class="wanderer">Catch me if you can!<br>
+               Through pixels I roam,<br>
+               Never finding home.</p>
+        </div>
+
+        <div class="card elevate">
+            <h2>The Floating Paradox</h2>
+            <p>Above all others I wish to be,<br>
+               Yet anchored to nothing, I cannot flee.</p>
+        </div>
+
+        <div class="card">
+            <h2>The Echo Chamber</h2>
+            <div onclick="alert('Echo from the depths...')" class="chamber">
+                <button class="action-btn" onclick="alert('Echo from above...')">
+                    Speak Words
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>The Eternal Whisper</h2>
+            <button class="action-btn" onclick="startWhispering()">
+                Listen Closely
+            </button>
+            <p>Some say it still whispers to this day...</p>
+        </div>
+
+        <div class="card">
+            <h2>The Time Traveler</h2>
+            <button class="action-btn" onclick="jumpThroughTime()">
+                Cross Dimensions
+            </button>
+            <div id="future-message"></div>
+        </div>
+
+        <div class="card">
+            <h2>The Memory Keeper</h2>
+            <button class="action-btn" onclick="createMemory()">
+                Store Memory
+            </button>
+            <p>Each memory adds to the weight of time...</p>
+        </div>
+        <div class="card">
+            <h2>The Cryptic Catastrophe</h2>
+            <p>Beware, brave soul, of the azure abyss.<br>
+               A single press might seal your plight,<br>
+               Plunge you into endless night.</p>
+            <button class="action-btn" onclick="triggerFullScreenImage()">
+                Tempt Fate
+            </button>
+        </div>
+        
+    </div>
+    <div id="popup-ad" class="popup-ad" onclick="closePopup()">
+        <img id="popup-image" src="" alt="Advertisement">
+    </div>
+    
+    
+    
+    
+
+    <div class="footer">
+        <p>🎮 Level 1: The Fundamental Paradoxes</p>
+        <p>© 2024 GDG RCCIIT - Web & AIML Team</p>
+    </div>
+    
+    <div class="insect" id="floating-bug"></div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
