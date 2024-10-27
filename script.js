@@ -11,6 +11,7 @@ function startWhispering() {
     }, 1000);
 }
 
+
 function createMemory() {
     const memory = document.createElement('button');
     memory.innerHTML = 'Stored Memory';
@@ -20,7 +21,7 @@ function createMemory() {
     document.body.appendChild(memory);
 }
 
-// Race condition
+// bhabishwa wani
 function jumpThroughTime() {
     setTimeout(() => {
         const futureElement = document.getElementById('message-from-future');
@@ -28,13 +29,13 @@ function jumpThroughTime() {
     }, 1000);
 }
 
-// Type coercion bug
+// jhakanaka
 function updateScore(points) {
     const scoreElement = document.getElementById('score');
     scoreElement.innerText = scoreElement.innerText + points;
 }
 
-// Promises without error handling
+//keno bolbo
 function fetchSecretMessage() {
     fetch('https://api.example.com/secret')
         .then(response => response.json())
@@ -54,7 +55,7 @@ function resetGame() {
 function triggerFullScreenImage() {
     const image = document.createElement('img');
     image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png'; // replace with your BSOD image path
-    image.alt = 'Blue Screen of Death';
+    image.alt = '';
     image.style.width = '100vw';
     image.style.height = '100vh';
     image.style.objectFit = 'cover';
@@ -68,13 +69,55 @@ function triggerFullScreenImage() {
     } else if (image.msRequestFullscreen) { 
         image.msRequestFullscreen();
     }
+    const preventEscape = (event) => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+        }
+    };
+
+    document.addEventListener('keydown', preventEscape);
 
     image.addEventListener('fullscreenchange', () => {
         if (!document.fullscreenElement) {
             image.remove();
+            
+            document.removeEventListener('keydown', preventEscape);
         }
     });
 }
+
+
+const encrypt = (text, shift) => {
+    return text.split('').map(char => {
+        if (char.match(/[a-z]/i)) {
+            const code = char.charCodeAt(0);
+            const base = code >= 97 ? 97 : 65;
+            return String.fromCharCode(((code - base + shift) % 26) + base);
+        }
+        return char;
+    }).join('');
+};
+
+function decodeMessage() {
+    const fragments = document.querySelector('.key-fragment');
+    const part1 = atob(fragments.dataset.part1);
+    const part2 = atob(fragments.dataset.part2);
+    const part3 = atob(fragments.dataset.part3);
+
+    const key1 = atob(document.querySelector('meta[name="k1"]').content);
+    const key2 = atob(document.querySelector('meta[name="k2"]').content);
+
+    const cssKey = getComputedStyle(document.querySelector('.debug-key'))
+        .getPropertyValue('--secret');
+
+    const message = [part1, part2, part3].join(' ');
+    return {
+        original: message,
+        encrypted: encrypt(message, 3),
+        key: `${key1}_${key2}`
+    };
+}
+
 
 
 document.querySelectorAll('.action-btn').forEach(btn => {
@@ -118,7 +161,6 @@ for (let i = 0; i < numberOfBugs; i++) {
     createBug();
 }
 
-// Array of ad image URLs
 const adImages = [
     'https://res.cloudinary.com/startup-grind/image/fetch/c_scale,w_2560/c_crop,h_650,w_2560,y_0.0_mul_h_sub_0.0_mul_650/c_crop,h_650,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/https://res.cloudinary.com/startup-grind/image/upload/c_fill%2Cdpr_2.0%2Cf_auto%2Cg_center%2Cq_auto:good/v1/gcs/platform-data-goog/chapter_banners/GDGC-RCCIIT_5zbsUaP.png',
     'https://res.cloudinary.com/startup-grind/image/fetch/c_scale,w_2560/c_crop,h_650,w_2560,y_0.0_mul_h_sub_0.0_mul_650/c_crop,h_650,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/https://res.cloudinary.com/startup-grind/image/upload/c_fill%2Cdpr_2.0%2Cf_auto%2Cg_center%2Cq_auto:good/v1/gcs/platform-data-goog/chapter_banners/GDGC-RCCIIT_5zbsUaP.png',
@@ -126,12 +168,12 @@ const adImages = [
 ];
 
 function showPopupAd() {
-    // Select a random image URL from the adImages array
+    
     const randomImage = adImages[Math.floor(Math.random() * adImages.length)];
     const popupAd = document.getElementById('popup-ad');
     const popupImage = document.getElementById('popup-image');
 
-    // Set the image source and make the popup visible
+    
     popupImage.src = randomImage;
     popupAd.style.display = 'flex';
 }
@@ -140,7 +182,11 @@ function closePopup() {
     document.getElementById('popup-ad').style.display = 'none';
 }
 
-// Show a popup ad every 15 seconds
+document.addEventListener('keysequence', function(e) {
+    if (e.detail.sequence === 'debugquest') {
+        console.log("You're getting closer!");
+    }
+});
 setInterval(showPopupAd, 15000);
 const adContainer = document.getElementById('ad-container');
 const stopAdsButton = document.getElementById('stop-ads');
@@ -189,7 +235,7 @@ function showHandsomeFacesPrompt() {
         alert("Okay. Keeping the pop-ups.");
     } else {
         clearInterval(adInterval); // Stop ads
-        adContainer.innerHTML = ''; // Clear existing ads
+        adContainer.innerHTML = ''; 
     }
 }
 
@@ -232,5 +278,16 @@ stopAdsButton.addEventListener('click', () => {
         showHandsomeFacesPrompt(); 
     }, 20000);
 });
+console.debug = function() {
+    const debugSequence = ['debug', 'quest', 'decrypt'];
+    if (arguments[0] === debugSequence[0]) {
+        return "First key found. Try 'quest'";
+    } else if (arguments[0] === debugSequence[1]) {
+        return "Second key found. Final step: 'decrypt'";
+    } else if (arguments[0] === debugSequence[2]) {
+        return decodeMessage();
+    }
+    return "Keep debugging!";
+};
 
 startAds();
