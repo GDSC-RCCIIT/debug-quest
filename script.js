@@ -11,14 +11,12 @@ function createAd() {
     ad.src = randomFriend;
     ad.className = 'ad';
 
-    // Randomly position the ad within the viewport
     ad.style.top = `${Math.random() * 100}vh`;
     ad.style.left = `${Math.random() * 100}vw`;
 
-    // Add animation for appearing ads
     ad.style.opacity = 0;
     adContainer.appendChild(ad);
-    setTimeout(() => { ad.style.opacity = 1; }, 100); // Fade-in effect
+    setTimeout(() => { ad.style.opacity = 1; }, 100); // Fade-in 
 
     let rotation = 0;
     const spinInterval = setInterval(() => {
@@ -26,11 +24,10 @@ function createAd() {
         ad.style.transform = `rotate(${rotation}deg)`;
     }, 50); 
 
-    // Remove the ad after 5 seconds
     setTimeout(() => {
         clearInterval(spinInterval);
-        ad.style.opacity = 0; // Fade-out effect
-        setTimeout(() => ad.remove(), 500); // Delay removal for fade-out
+        ad.style.opacity = 0; // Fade-out 
+        setTimeout(() => ad.remove(), 500); 
     }, 5000); 
 }
 
@@ -66,10 +63,9 @@ function createAnnoyingAd() {
     ad.style.top = `${Math.random() * 100}vh`;
     ad.style.left = `${Math.random() * 100}vw`;
 
-    // Add animation for appearing annoying ads
     ad.style.opacity = 0;
     adContainer.appendChild(ad);
-    setTimeout(() => { ad.style.opacity = 1; }, 100); // Fade-in effect
+    setTimeout(() => { ad.style.opacity = 1; }, 100); 
 
     let rotation = 0;
     const spinInterval = setInterval(() => {
@@ -79,8 +75,8 @@ function createAnnoyingAd() {
 
     setTimeout(() => {
         clearInterval(spinInterval);
-        ad.style.opacity = 0; // Fade-out effect
-        setTimeout(() => ad.remove(), 500); // Delay removal for fade-out
+        ad.style.opacity = 0; // Fade-out
+        setTimeout(() => ad.remove(), 500); 
     }, 5000); 
 }
 
