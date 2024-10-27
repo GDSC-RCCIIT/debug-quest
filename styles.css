@@ -1,3 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    background-color: #ffff00;
+    color: #000;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.nav {
+    background: #ff3366;
+    border: 4px solid black;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 8px 8px 0 black;
+    position: relative;
+}
+
+.logo {
+    font-size: 3rem;
+    text-transform: uppercase;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    border: 4px solid black;
+    padding: 20px;
+    box-shadow: 8px 8px 0 black;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 black;
+}
+
+.action-btn {
+    background: #00ff00;
+    border: 2px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.wanderer {
+    position: relative;
+}
+
+.wanderer:hover {
+    animation: wander 2s infinite;
+}
+
+@keyframes wander {
+    0% { left: 0; top: 0; }
+    25% { left: 100px; top: 0; }
+    50% { left: 50px; top: 50px; }
+    75% { left: 50px; top: 50px; }
+    100% { left: 0; top: 0; }
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background: #00ffff;
+    border: 4px solid black;
+    box-shadow: 8px 8px 0 black;
+}
+
+/* Intentional bugs */
+.elevate {
+    z-index: 1000;
+}
+
+.chamber {
+    width: 500pixels;
+}
+
+.score-display {
+    margin-top: pixels;
+}
+
+.hidden-overflow {
+    height: 100px;
+    overflow: none;
+}
+
+.card {
+    padding: 15px;
+}
+
+.insect {
+    width: 30px;
+    height: 30px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/10771/10771520.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: floatBug 10s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatBug {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(80vw, 10vh); }
+    50% { transform: translate(40vw, 60vh); }
+    75% { transform: translate(20vw, 30vh); }
+    100% { transform: translate(0, 0); }
+}
+.popup-ad {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.popup-ad img {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 10px;
+}
 body {
     margin: 0;
     overflow: hidden;
@@ -21,10 +182,6 @@ body {
 }
 
 button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
     padding: 10px 7px; /* Increased padding for a better look */
     font-size: 13px; /* Slightly larger font */
     cursor: pointer;
