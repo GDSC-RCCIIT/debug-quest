@@ -182,22 +182,22 @@ body {
 }
 
 button {
-    padding: 10px 7px; /* Increased padding for a better look */
-    font-size: 13px; /* Slightly larger font */
+    padding: 10px 7px; 
+    font-size: 13px; 
     cursor: pointer;
-    background-color: #037ef9; /* Bright background color */
-    color: white; /* White text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    background-color: #037ef9; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
 button:hover {
-    background-color: #e64a19; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly grow on hover */
+    background-color: #e64a19; 
+    transform: scale(1.05); 
 }
 
 button:active {
-    transform: scale(0.95); /* Shrink on click */
+    transform: scale(0.95); 
 }
