@@ -46,7 +46,7 @@ function resetGame() {
 }
 function triggerFullScreenImage() {
     const image = document.createElement('img');
-    image.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png'; // replace with your BSOD image path
+    image.src = 'images/BSOD.jpg'; // replace with your BSOD image path
     image.alt = '';
     image.style.width = '100vw';
     image.style.height = '100vh';
