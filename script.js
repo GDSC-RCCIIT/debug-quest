@@ -21,14 +21,6 @@ function createMemory() {
     document.body.appendChild(memory);
 }
 
-// bhabishwa wani
-function jumpThroughTime() {
-    setTimeout(() => {
-        const futureElement = document.getElementById('message-from-future');
-        futureElement.style.color = 'red';
-    }, 1000);
-}
-
 // jhakanaka
 function updateScore(points) {
     const scoreElement = document.getElementById('score');
