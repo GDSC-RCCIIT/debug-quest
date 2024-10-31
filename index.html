@@ -49,13 +49,17 @@
 
         <div class="card">
             <h2>The Counter's Tale</h2>
-            <p>Numbers dance, but something's wrong,<br>
-               The sequence plays a different song.</p>
+            <p>
+                Numbers dance, but something's wrong,<br>
+                The sequence plays a different song.
+            </p>
             <p>Points: <span id="points">0</span></p>
-            <button class="action-btn" onclick="document.getElementById('points').innerHTML += 1">
+            <button class="action-btn" onclick="document.getElementById('points').innerHTML = parseInt(document.getElementById('points').innerHTML) + 1">
                 Count Up
             </button>
         </div>
+        
+       
 
         <div class="card">
             <h2>The Restless Message</h2>
