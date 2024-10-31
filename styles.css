@@ -81,13 +81,7 @@ body {
     animation: wander 2s infinite;
 }
 
-@keyframes wander {
-    0% { left: 0; top: 0; }
-    25% { left: 100px; top: 0; }
-    50% { left: 50px; top: 50px; }
-    75% { left: 50px; top: 50px; }
-    100% { left: 0; top: 0; }
-}
+
 
 .footer {
     margin-top: 40px;
