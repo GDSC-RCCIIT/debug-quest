@@ -74,8 +74,19 @@ body {
 }
 
 .wanderer {
+<<<<<<< HEAD
+    position: relative;
+}
+
+.wanderer:hover {
+    animation: wander 2s infinite;
+}
+
+
+=======
     position: absolute;
 }
+>>>>>>> 5a1e0b0369d4c24ef864dd763a27ad7813f54ce3
 
 .footer {
     margin-top: 40px;
