@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🎮 Debug Quest | GDG RCCIIT</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        #message {
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #00ff00;
+            }
+            to {
+                box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+            }
+        }
+    </style>
+</head>
+<body>  
+    <script>document.write(atob("PGRpdiBpZD0ibWVzc2FnZSI+TG9vayBiZXlvbmQgdGhlIEhUTUwsIHdoZXJlIGZ1bmN0aW9ucyBob2xkIGtleXMgYW5kIHZhcmlhYmxlcyBtYXkgd2hpc3BlciBzZWNyZXRzLjwvZGl2Pgo="));</script>
+    <script>
+        const flag = document.createComment("GDG&lbrace;Th1s&lowbar;1s&lowbar;4&lowbar;fl4g&rcub;");
+        document.body.appendChild(flag);
+      </script>
+    <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+</body>
+</html>
