@@ -1,0 +1,10 @@
+.card.elevate
+ {
+    animation: float 3s ease-in-out infinite; // Makes it float
+ }
+@keyframes float 
+ {
+    0% { transform: translatey(0); }
+    50% { transform: translatey(-20px); } // Allows it to float above
+    100% { transform: translatey(0); }
+ }
