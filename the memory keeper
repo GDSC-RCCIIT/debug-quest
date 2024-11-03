@@ -1,0 +1,20 @@
+let memoryCount = 0; // Variable to count memories
+
+function createMemory() {
+    const memory = document.createElement('button');
+    memory.innerHTML = 'Stored Memory';
+    memory.addEventListener('click', () => {
+        console.log('Memory accessed...');
+    });
+    document.body.appendChild(memory);
+    memoryCount++; // Increase memory count
+    updateMemoryDisplay(); // Update displayed memory count
+}
+
+function updateMemoryDisplay() {
+    const memoryDisplay = document.getElementById('memory-display');
+    memoryDisplay.innerText = Memories Stored: ${memoryCount};
+}
+
+// Add this line to your HTML to display memory count
+<p id="memory-display">Memories Stored: 0</p>
