@@ -1,0 +1,5 @@
+function updateScore(points)
+ {
+     const scoreElement = document.getElementById('score');
+     scoreElement.innerText = parseInt(scoreElement.innerText) + points; 
+ }
