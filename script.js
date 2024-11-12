@@ -120,54 +120,6 @@ function distortScreen() {
     }, 10000); 
 }
 
-
-
-function triggerFullScreenImage() {
-    const videoOverlay = document.createElement("div");
-    videoOverlay.className = "creepy-video-overlay";
-    videoOverlay.style.position = "fixed";
-    videoOverlay.style.top = "0";
-    videoOverlay.style.left = "0";
-    videoOverlay.style.width = "100%";
-    videoOverlay.style.height = "100%";
-    videoOverlay.style.zIndex = "9999";
-    videoOverlay.style.backgroundColor = "black";
-
-    const videoElement = document.createElement("video");
-    videoElement.src = "Windows.mp4"; 
-    videoElement.autoplay = true; 
-    videoElement.loop = false; 
-    videoElement.controls = false; 
-    videoElement.muted = false; 
-    videoElement.playsInline = true; 
-    videoElement.style.width = "100%";
-    videoElement.style.height = "100%";
-    videoElement.style.objectFit = "cover";
-    videoElement.style.pointerEvents = "none"; 
-
-    videoOverlay.appendChild(videoElement);
-    document.body.appendChild(videoOverlay);
-
-    videoElement.addEventListener('canplay', () => {
-        if (videoElement.requestFullscreen) {
-            videoElement.requestFullscreen();
-        } else if (videoElement.mozRequestFullScreen) { // Firefox
-            videoElement.mozRequestFullScreen();
-        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
-            videoElement.webkitRequestFullscreen();
-        } else if (videoElement.msRequestFullscreen) { // IE/Edge
-            videoElement.msRequestFullscreen();
-        }
-    });
-
-    videoElement.onended = () => {
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        }
-        videoOverlay.remove();
-    };
-}
-
 const style = document.createElement('style');
 style.innerHTML = `
     video::-webkit-media-controls {
