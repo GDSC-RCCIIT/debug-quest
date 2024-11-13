@@ -1111,4 +1111,35 @@ function narrateIpAddress(ip) {
     speechSynthesis.speak(utterance);
 }
 
-displayIpMessage();
+function triggerFullScreenImage() {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.style.zIndex = '9998';
+
+    const solvedMessage = document.createElement('div');
+    solvedMessage.textContent = "this has been solved";
+    solvedMessage.style.position = 'fixed';
+    solvedMessage.style.top = '50%';
+    solvedMessage.style.left = '50%';
+    solvedMessage.style.transform = 'translate(-50%, -50%)';
+    solvedMessage.style.fontSize = '2rem';
+    solvedMessage.style.color = '#fff';
+    solvedMessage.style.zIndex = '9999';
+    solvedMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    solvedMessage.style.padding = '20px';
+    solvedMessage.style.borderRadius = '10px';
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(solvedMessage);
+
+    setTimeout(() => {
+        overlay.remove();
+        solvedMessage.remove();
+    }, 5000);
+}
