@@ -516,47 +516,6 @@ function incrementPoints() {
     let currentPoints = parseInt(pointsElement.innerText);
     pointsElement.innerText = currentPoints + 1; // Increment points
 }
-function celebrate() {
-    incrementPoints(); // Increment points when the button is clicked
-
-    let crackerSound = new Audio('cracker-sound.mp3'); 
-    crackerSound.play();
-    
-    for (let i = 0; i < 90; i++) { 
-        createFirework();
-    }
-
-    setTimeout(() => {
-        crackerSound.pause();
-        crackerSound.currentTime = 0; // Reset the audio for next use
-    }, 7000); 
-
-    // Spawn fireworks continuously for 7 seconds
-    const fireworkInterval = setInterval(() => {
-        createFirework();
-    }, 100); 
-
-    setTimeout(() => {
-        clearInterval(fireworkInterval);
-    }, 7000); // 7000 milliseconds = 7 seconds
-    
-}
-
-
-
-function createFirework() {
-    const firework = document.createElement('div');
-    firework.className = 'firework';
-    firework.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-    firework.style.bottom = `${Math.random() * 100}vh`; // Random vertical position
-    firework.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration
-    document.body.appendChild(firework);
-
-    // Remove firework after animation ends
-    firework.addEventListener('animationend', () => {
-        firework.remove();
-    });
-}
 
 
 document.addEventListener('DOMContentLoaded', () => {
