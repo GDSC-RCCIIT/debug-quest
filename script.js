@@ -516,47 +516,6 @@ function incrementPoints() {
     let currentPoints = parseInt(pointsElement.innerText);
     pointsElement.innerText = currentPoints + 1; // Increment points
 }
-function celebrate() {
-    incrementPoints(); // Increment points when the button is clicked
-
-    let crackerSound = new Audio('cracker-sound.mp3'); 
-    crackerSound.play();
-    
-    for (let i = 0; i < 90; i++) { 
-        createFirework();
-    }
-
-    setTimeout(() => {
-        crackerSound.pause();
-        crackerSound.currentTime = 0; // Reset the audio for next use
-    }, 7000); 
-
-    // Spawn fireworks continuously for 7 seconds
-    const fireworkInterval = setInterval(() => {
-        createFirework();
-    }, 100); 
-
-    setTimeout(() => {
-        clearInterval(fireworkInterval);
-    }, 7000); // 7000 milliseconds = 7 seconds
-    
-}
-
-
-
-function createFirework() {
-    const firework = document.createElement('div');
-    firework.className = 'firework';
-    firework.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-    firework.style.bottom = `${Math.random() * 100}vh`; // Random vertical position
-    firework.style.animationDuration = `${Math.random() * 3 + 1}s`; // Random duration
-    document.body.appendChild(firework);
-
-    // Remove firework after animation ends
-    firework.addEventListener('animationend', () => {
-        firework.remove();
-    });
-}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -624,32 +583,6 @@ document.addEventListener("mousemove", (e) => {
     }, 1000);
 });
 
-function playAmogus() {
-    const amogus = new Audio('Amongus.mp3');
-    const duration = 2; 
-    const totalDuration = 10; 
-    const loops = Math.ceil(totalDuration / duration); 
-
-    let currentLoop = 0; 
-
-    function playNextLoop() {
-        if (currentLoop < loops) {
-            amogus.currentTime = 0; 
-            amogus.play(); 
-
-            currentLoop++;
-
-            setTimeout(() => {
-                playNextLoop();
-            }, duration * 1000); 
-        } else {
-            amogus.pause(); 
-            amogus.currentTime = 0; 
-        }
-    }
-
-    playNextLoop(); 
-}
 
 function playDisSound() {
     const audio = new Audio('distort.mp3');
@@ -760,24 +693,6 @@ function showHiddenDisturbance() {
     hiddenMessage.style.animation = 'fadeIn 1s forwards'; // Add fade-in animation
 }
 
-function moveCardAround() {
-    const card = document.getElementById("disturb");
-    const bsoD = document.createElement("div");
-    bsoD.className = "bsoD";
-    bsoD.textContent = "FATAL ERROR! SYSTEM CRASHED!";
-    document.body.appendChild(bsoD);
-
-    let displacementInterval = setInterval(() => {
-        const randomX = Math.random() * (window.innerWidth - card.offsetWidth);
-        const randomY = Math.random() * (window.innerHeight - card.offsetHeight);
-        card.style.transform = `translate(${randomX}px, ${randomY}px)`;
-
-        setTimeout(() => {
-            clearInterval(displacementInterval);
-            showBSOD(bsoD);
-        }, 2000); 
-    }, 1000); 
-}
 
 function showBSOD(bsoD) {
     bsoD.style.position = "fixed"; 
@@ -851,20 +766,7 @@ function startEarthquake() {
   }
 
 
-function triggerDisturbance() {
-    const body = document.body;
 
-    body.classList.add('shake-active');
-
-    setTimeout(() => {
-        body.classList.remove('shake-active');
-    }, 10000); 
-
-    
-    const hiddenMessage = document.getElementById("hidden-disturbance");
-    hiddenMessage.classList.remove("hidden-message"); // Make the message visible
-
-}
 
 function triggerScreenShake() {
     let body = document.body;
