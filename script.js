@@ -1,3 +1,17 @@
+window.onload = function() {
+    const userResponse = prompt("Hello! Welcome to the mysterious world. Are you ready for what lies ahead?");
+    
+    if (userResponse === null || userResponse.trim() === "") {
+        alert("I didn't quite get you, but hope you'll have a blast anyway!");
+    } else if (userResponse.toLowerCase() === "yes") {
+        alert("Great! You're ready for the adventure ahead!");
+    } else if (userResponse.toLowerCase() === "no") {
+        alert("That's alright, maybe next time!");
+    } else {
+        alert("I didn't quite get you, but hope you'll have a blast anyway!");
+    }
+};
+
 
 let score = 0;
 document.getElementById("score").innerText = score;
@@ -46,7 +60,7 @@ function triggerScreenDespair() {
     }
 }
 
-setInterval(triggerScreenDespair, 15000); // Trigger every 15 seconds
+
 
 const eerieSounds = ["sound1.mp3", "sound2.mp3", "sound3.mp3"];
 function playRandomSound() {
@@ -120,7 +134,7 @@ function triggerFullScreenImage() {
     videoOverlay.style.backgroundColor = "black";
 
     const videoElement = document.createElement("video");
-    videoElement.src = "you-are-my-sunshine.mp4"; 
+    videoElement.src = "Windows.mp4"; 
     videoElement.autoplay = true; 
     videoElement.loop = false; 
     videoElement.controls = false; 
@@ -232,6 +246,31 @@ function jumpThroughTime() {
     document.getElementById('future-message').innerHTML = randomMessage;
 }
 
+function createMemory() {
+    const memory = document.createElement('button');
+    memory.innerHTML = 'Stored Memory';
+    memory.addEventListener('click', () => {
+        console.log('Memory accessed...');
+        triggerRandomAlert();
+    });
+    document.body.appendChild(memory);
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        event.preventDefault();
+        triggerRandomAlert();
+    }
+});
+
+window.addEventListener('resize', () => {
+    document.body.style.transition = 'transform 0.5s';
+    document.body.style.transform = 'scale(0.8)';
+    setTimeout(() => {
+        document.body.style.transform = 'scale(1)';
+    }, 1000);
+});
+
 startCreepyMessages();
 
 function improveVanishingAct() {
@@ -244,7 +283,12 @@ function improveVanishingAct() {
     incrementPoints();
 
     
-    
+    addGhostlyFigure();
+
+    const solveButton = document.querySelector('.solve-me'); 
+    const creepySound = document.getElementById('creepySound');
+    const creepyOverlay = document.getElementById('creepyOverlay');
+
     solveButton.addEventListener('click', function() {
         creepySound.play();
         creepyOverlay.style.opacity = 1;
@@ -657,7 +701,32 @@ function embarkOnAdventure() {
     }, 3000); 
     createBugs();
 }
+function createBugs() {
+    const numberOfBugs = 5000; 
+    const bugs = ['🐜', '🐞', '🕷️', '🐍', '🦗', '🕸️', '🐛']; 
 
+    for (let i = 0; i < numberOfBugs; i++) {
+        const bug = document.createElement('span'); 
+        const randomBug = bugs[Math.floor(Math.random() * bugs.length)]; 
+        bug.textContent = randomBug; 
+        bug.classList.add('bug'); 
+        bug.style.position = 'absolute'; 
+        bug.style.fontSize = '24px'; 
+        bug.style.left = Math.random() * 100 + 'vw'; 
+        bug.style.top = Math.random() * 100 + 'vh'; 
+        bug.style.transition = 'transform 5s linear'; 
+
+        document.body.appendChild(bug); 
+
+        setTimeout(() => {
+            bug.style.transform = `translateY(100vh)`; 
+        }, 100);
+
+        setTimeout(() => {
+            bug.remove(); 
+        }, 6000); 
+    }
+}
 function startRotation() {
     const gridDiv = document.querySelector(".grid");
     
@@ -768,6 +837,133 @@ function startEarthquake() {
 
 
 
+
+function triggerCrash() {
+    document.body.classList.add('chaotic-mode');
+    
+    let chaosInterval = setInterval(() => {
+        let chaosElement = document.createElement('div');
+        chaosElement.classList.add('chaos-element');
+        chaosElement.style.top = Math.random() * window.innerHeight + 'px';
+        chaosElement.style.left = Math.random() * window.innerWidth + 'px';
+        chaosElement.style.zIndex = Math.floor(Math.random() * 1000); // Random z-index for layering
+        document.body.appendChild(chaosElement);
+
+        chaosElement.style.animation = 'spin-glitch 0.5s infinite linear, move-glitch 0.5s infinite';
+        
+        let randomText = document.createElement('p');
+        randomText.classList.add('glitchy-text');
+        randomText.innerText = 'SYSTEM CRASH!';
+        randomText.style.top = Math.random() * window.innerHeight + 'px';
+        randomText.style.left = Math.random() * window.innerWidth + 'px';
+        document.body.appendChild(randomText);
+    }, 50); 
+
+    setTimeout(() => {
+        clearInterval(chaosInterval);
+        document.body.classList.remove('chaotic-mode');
+        document.querySelectorAll('.chaos-element, .glitchy-text').forEach(el => el.remove());
+    }, 10000);
+}
+
+function createMemory() {
+    let errorMemoryText = document.createElement('div');
+    errorMemoryText.classList.add('error-memory');
+    errorMemoryText.innerText = 'ERROR MEMORY';
+    document.body.appendChild(errorMemoryText);
+
+    errorMemoryText.style.top = Math.random() * window.innerHeight + 'px';
+    errorMemoryText.style.left = Math.random() * window.innerWidth + 'px';
+
+    setTimeout(() => errorMemoryText.remove(), 3000);
+}
+
+function triggerCrash() {
+    document.body.classList.add('chaotic-mode');
+    
+    let chaosInterval = setInterval(() => {
+        let chaosElement = document.createElement('div');
+        chaosElement.classList.add('chaos-element');
+        chaosElement.style.top = Math.random() * window.innerHeight + 'px';
+        chaosElement.style.left = Math.random() * window.innerWidth + 'px';
+        chaosElement.style.zIndex = Math.floor(Math.random() * 1000); // Random z-index for layering
+        document.body.appendChild(chaosElement);
+
+        chaosElement.style.animation = 'spin-glitch 0.5s infinite linear, move-glitch 0.5s infinite';
+        
+        let randomText = document.createElement('p');
+        randomText.classList.add('glitchy-text');
+        randomText.innerText = 'SYSTEM CRASH!';
+        randomText.style.top = Math.random() * window.innerHeight + 'px';
+        randomText.style.left = Math.random() * window.innerWidth + 'px';
+        document.body.appendChild(randomText);
+    }, 50); 
+
+    setTimeout(() => {
+        clearInterval(chaosInterval);
+        document.body.classList.remove('chaotic-mode');
+        document.querySelectorAll('.chaos-element, .glitchy-text').forEach(el => el.remove());
+    }, 10000);
+}
+
+function createMemory() {
+    let errorMemoryText = document.createElement('div');
+    errorMemoryText.classList.add('error-memory');
+    errorMemoryText.innerText = 'ERROR MEMORY';
+    document.body.appendChild(errorMemoryText);
+
+    errorMemoryText.style.top = Math.random() * window.innerHeight + 'px';
+    errorMemoryText.style.left = Math.random() * window.innerWidth + 'px';
+
+    setTimeout(() => errorMemoryText.remove(), 3000);
+}
+
+function createMemory() {
+    let errorMemoryText = document.createElement('div');
+    errorMemoryText.classList.add('error-memory');
+    errorMemoryText.innerText = 'ERROR MEMORY';
+    document.body.appendChild(errorMemoryText);
+
+    errorMemoryText.style.top = Math.random() * window.innerHeight + 'px';
+    errorMemoryText.style.left = Math.random() * window.innerWidth + 'px';
+
+    setTimeout(() => errorMemoryText.remove(), 3000);
+}
+
+
+function createMemory() {
+    for (let i = 0; i < 70; i++) { // Increase for more elements
+        let errorMemoryText = document.createElement('div');
+        errorMemoryText.classList.add('error-memory');
+        errorMemoryText.innerText = 'ERROR MEMORY';
+        document.body.appendChild(errorMemoryText);
+
+        errorMemoryText.style.position = 'fixed';
+        errorMemoryText.style.top = Math.random() * window.innerHeight + 'px';
+        errorMemoryText.style.left = Math.random() * window.innerWidth + 'px';
+        errorMemoryText.style.animation = 'error-fade 0.5s alternate infinite, rotate-wobble 1s infinite';
+    }
+
+    document.body.classList.add('glitch-background');
+    setTimeout(() => {
+        document.body.classList.remove('glitch-background');
+        document.querySelectorAll('.error-memory').forEach(el => el.remove());
+    }, 10000);
+
+    triggerScreenShake();
+
+    triggerCursorFlicker();
+
+    triggerRandomColorChanges();
+
+    triggerRandomDialogs();
+
+    document.addEventListener('mousemove', createMouseTrail);
+    setTimeout(() => {
+        document.removeEventListener('mousemove', createMouseTrail);
+    }, 10000);
+}
+
 function triggerScreenShake() {
     let body = document.body;
     let shakeInterval = setInterval(() => {
@@ -843,3 +1039,26 @@ function createMouseTrail(event) {
     }, 1000); 
 }
 
+function triggerTimeMachine() {
+    const randomIp = generateRandomIp();
+
+    const fakeIpElement = document.getElementById('fake-ip');
+    fakeIpElement.innerText = `Your IP Address: ${randomIp}`; // Set the generated IP address
+    fakeIpElement.style.display = 'block'; // Show the IP address
+
+    narrateIpAddress(randomIp);
+}
+
+function generateRandomIp() {
+    const randomPart = () => Math.floor(Math.random() * 256); 
+    return `${randomPart()}.${randomPart()}.${randomPart()}.${randomPart()}`;
+}
+
+function narrateIpAddress(ip) {
+    const utterance = new SpeechSynthesisUtterance(`Your IP address is ${ip}`);
+    utterance.rate = 0.9; 
+    utterance.pitch = 1; 
+    speechSynthesis.speak(utterance);
+}
+
+displayIpMessage();
