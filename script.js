@@ -725,15 +725,7 @@ function embarkOnAdventure() {
     createBugs();
 }
 
-function startRotation() {
-    const gridDiv = document.querySelector(".grid");
-    
-    gridDiv.classList.add("rotate-active");
-  
-    setTimeout(() => {
-      gridDiv.classList.remove("rotate-active");
-    }, 5000);
-  }
+
   
 
 document.getElementById("hidden-disturbance").classList.add("hidden-message");
