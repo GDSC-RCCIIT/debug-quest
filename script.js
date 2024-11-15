@@ -1,4 +1,3 @@
-
 let score = 0;
 document.getElementById("score").innerText = score;
 let points = 0;
@@ -631,12 +630,32 @@ function embarkOnAdventure() {
 
 document.getElementById("hidden-disturbance").classList.add("hidden-message");
 function triggerDisturbance() {
-    document.getElementById("disturbance-text").textContent = randomizeText();
-    showHiddenDisturbance();
+    const overlay = document.createElement('div');
+    overlay.className = 'blur-overlay';
+    
+    const message = document.createElement('div');
+    message.className = 'blur-message';
+    message.textContent = 'Issue has been successfully solved';
+    
+    overlay.appendChild(message);
+    document.body.appendChild(overlay);
 
     setTimeout(() => {
+        overlay.classList.add('active');
+    }, 100);
+
+    setTimeout(() => {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.remove();
+        }, 300);
+    }, 5000);
+
+    document.getElementById("disturbance-text").textContent = randomizeText();
+    showHiddenDisturbance();
+    setTimeout(() => {
         moveCardAround();
-    }, 4000); // Adjust timing as needed
+    }, 4000);
 }
 
 function randomizeText() {
