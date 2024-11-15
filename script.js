@@ -109,49 +109,36 @@ function distortScreen() {
 
 
 function triggerFullScreenImage() {
-    const videoOverlay = document.createElement("div");
-    videoOverlay.className = "creepy-video-overlay";
-    videoOverlay.style.position = "fixed";
-    videoOverlay.style.top = "0";
-    videoOverlay.style.left = "0";
-    videoOverlay.style.width = "100%";
-    videoOverlay.style.height = "100%";
-    videoOverlay.style.zIndex = "9999";
-    videoOverlay.style.backgroundColor = "black";
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.backdropFilter = 'blur(8px)';
+    overlay.style.zIndex = '9998';
 
-    const videoElement = document.createElement("video");
-    videoElement.src = "you-are-my-sunshine.mp4"; 
-    videoElement.autoplay = true; 
-    videoElement.loop = false; 
-    videoElement.controls = false; 
-    videoElement.muted = false; 
-    videoElement.playsInline = true; 
-    videoElement.style.width = "100%";
-    videoElement.style.height = "100%";
-    videoElement.style.objectFit = "cover";
-    videoElement.style.pointerEvents = "none"; 
+    const solvedMessage = document.createElement('div');
+    solvedMessage.textContent = "this has been solved";
+    solvedMessage.style.position = 'fixed';
+    solvedMessage.style.top = '50%';
+    solvedMessage.style.left = '50%';
+    solvedMessage.style.transform = 'translate(-50%, -50%)';
+    solvedMessage.style.fontSize = '2rem';
+    solvedMessage.style.color = '#fff';
+    solvedMessage.style.zIndex = '9999';
+    solvedMessage.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    solvedMessage.style.padding = '20px';
+    solvedMessage.style.borderRadius = '10px';
 
-    videoOverlay.appendChild(videoElement);
-    document.body.appendChild(videoOverlay);
+    document.body.appendChild(overlay);
+    document.body.appendChild(solvedMessage);
 
-    videoElement.addEventListener('canplay', () => {
-        if (videoElement.requestFullscreen) {
-            videoElement.requestFullscreen();
-        } else if (videoElement.mozRequestFullScreen) { // Firefox
-            videoElement.mozRequestFullScreen();
-        } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
-            videoElement.webkitRequestFullscreen();
-        } else if (videoElement.msRequestFullscreen) { // IE/Edge
-            videoElement.msRequestFullscreen();
-        }
-    });
-
-    videoElement.onended = () => {
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        }
-        videoOverlay.remove();
-    };
+    setTimeout(() => {
+        overlay.remove();
+        solvedMessage.remove();
+    }, 5000);
 }
 
 const style = document.createElement('style');
