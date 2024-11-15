@@ -92,16 +92,6 @@ h1.logo {
     z-index: 1000;
 }
 
-/* Trailing Cursor Effect */
-.trailing-cursor {
-    width: 20px;
-    height: 200px;
-    background-color: #da0000;
-    border-radius: 50%;
-    position: absolute;
-    pointer-events: none;
-}
-
 /* Flickering Effect */
 @keyframes flicker {
     0% { opacity: 1; }
@@ -205,16 +195,6 @@ h1.logo {
     50% {
         opacity: 0.8;
     }
-}
-
-.trailing-cursor {
-    position: absolute;
-    background-color: red;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    pointer-events: none;
-    animation: fadeOut 1s forwards;
 }
 
 @keyframes fadeOut {
@@ -1593,14 +1573,6 @@ body {
     animation: jump 0.5s infinite alternate;
 }
 
-@keyframes jump {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); } /* Adjust height as needed */
-    100% { transform: translateY(0); }
-}
-.card{
-    animation: jump 0.5s infinite alternate;
-}
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -1702,23 +1674,6 @@ Styles for the despair text
 
 
 /* Rotate for 20 seconds */
-@keyframes websiteShake {
-    0% { transform: translate(0); }
-    10% { transform: translate(-5px, 0); }
-    20% { transform: translate(5px, 0); }
-    30% { transform: translate(-5px, 0); }
-    40% { transform: translate(5px, 0); }
-    50% { transform: translate(-5px, 0); }
-    60% { transform: translate(5px, 0); }
-    70% { transform: translate(-5px, 0); }
-    80% { transform: translate(5px, 0); }
-    90% { transform: translate(-5px, 0); }
-    100% { transform: translate(0); }
-}
-
-body.shake-active {
-    animation: websiteShake 0.3s infinite; /* Apply shake effect */
-}
 
 /* Ensure hidden messages are initially hidden */
 .hidden-message {
@@ -3348,27 +3303,10 @@ body.shake-active {
     }
 }
 
-@keyframes randomMovement {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(10px, 5px); }
-    100% { transform: translate(-10px, -5px); }
-}
-
-body {
-    animation: randomMovement 3s infinite;
-}
-@keyframes randomScale {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    50% { transform: scale(0.95); }
-    75% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
 
 
-body {
-    animation: randomScale 3s infinite;
-}
+
+
 /* Body settings */
 body {
     background-color: #111; /* Dark background for visibility */
@@ -3458,27 +3396,4 @@ body {
         transform: translate(0, -100px);
         opacity: 0.8;
     }
-}
-
-@keyframes squeezeStretch {
-    0% {
-        transform: scale(1); /* Normal size */
-    }
-    25% {
-        transform: scale(1.2, 0.8); /* Stretch horizontally, squeeze vertically */
-    }
-    50% {
-        transform: scale(1); /* Back to normal size */
-    }
-    75% {
-        transform: scale(0.8, 1.2); /* Squeeze horizontally, stretch vertically */
-    }
-    100% {
-        transform: scale(1); /* Back to normal size */
-    }
-}
-
-#POTION {
-    animation: squeezeStretch 0.5s infinite; /* Apply the squeeze/stretch animation */
-    animation-timing-function: ease-in-out; /* Smooth transition */
 }
