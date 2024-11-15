@@ -29,25 +29,6 @@ function incrementPoints() {
     document.getElementById("points").innerText = points;
 }
 
-let despairTriggered = false;
-function triggerScreenDespair() {
-    if (!despairTriggered) {
-        despairTriggered = true;
-        
-        const despairOverlay = document.createElement('div');
-        despairOverlay.className = 'dark-overlay';
-        despairOverlay.innerHTML = "<h1 class='despair-text'>THE VOID AWAITS...</h1>";
-        document.body.appendChild(despairOverlay);
-
-        setTimeout(() => {
-            despairOverlay.remove();
-            despairTriggered = false;
-        }, 1000); // Lasts for 2 seconds
-    }
-}
-
-setInterval(triggerScreenDespair, 15000); // Trigger every 15 seconds
-
 const eerieSounds = ["sound1.mp3", "sound2.mp3", "sound3.mp3"];
 function playRandomSound() {
     const audio = new Audio(eerieSounds[Math.floor(Math.random() * eerieSounds.length)]);
